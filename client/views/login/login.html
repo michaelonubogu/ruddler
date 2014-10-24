@@ -1,0 +1,99 @@
+<template name="login">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 center-block">
+                <h4 class="page-header text-center">Get Started!</h4>
+                <form role="form">
+                    <div class="form-group float-label-control label-bottom max-width">
+                        <label for="">Email Address</label>
+                        <input type="email" class="form-control" placeholder="Username (Email)">
+                    </div>
+                    <div class="form-group float-label-control label-bottom max-width">
+                        <label for="">Password</label>
+                        <input type="password" class="form-control" placeholder="Password">
+                    </div>
+                    <div class="form-group col-lg-12 col-md-12 col-sm-12 margin5 zero-padding-left zero-padding-right">
+                        <button type="submit" value="Send" id="submit" class="btn btn-lg btn-fancy btn-block">Start</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="loginSlideOut">
+    <div id="sidr">
+        <!-- Your content -->
+        <div class="main">
+            <form role="form">
+                <div class="form-group login-fine-print">Sign in with Social Media</div>
+                <a id="github_sign_in" href="#" class="btn btn-twitter btn-block">
+                    <i class="fa fa-github"></i>
+                    Sign in with Github</a>
+                <!--<a id="twitter_sign_in" href="#" class="btn btn-twitter btn-block">
+                    <i class="fa fa-twitter"></i>
+                    Sign in with Twitter</a>-->
+                <a id="linkedin_sign_in" href="#" class="btn btn-facebook btn-block">
+                    <i class="fa fa-linkedin"></i>
+                    Sign in with LinkedIn</a>
+            </form>
+            <br>
+            <div class="login-or">
+                <hr class="hr-or">
+                <span class="span-or"></span>
+            </div>
+
+            <form role="form">
+                <div class="form-group login-fine-print">Sign in with Email</div>
+                <div class="form-group">
+                    <label for="inputUsernameEmail">Email</label>
+                    <input type="text" class="form-control" id="loginEmail">
+                </div>
+                <div class="form-group">
+                    <!--<a class="pull-right" href="#">Forgot password?</a>-->
+                    <label for="inputPassword">Password</label>
+                    <input type="password" class="form-control" id="loginPassword">
+                </div>
+                <button id="sign_in" type="submit" class="btn btn btn-primary btn-block">
+                    <i class="fa fa-sign-in"></i> Log In</button>
+            </form>
+        </div>
+    </div>
+</template>
+
+<template name="loginStatus_SignIn">
+    <li class="dropdown">
+        <a id="sign-in" href="#sidr" class="dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-sign-in"></i> Sign in <!--<b class="caret"></b>--></a>
+    </li>
+</template>
+
+<template name="loginStatus">
+    {{#if currentUser}}
+        {{> loginStatus_loggedIn}}
+    {{else}}
+        {{> loginStatus_loggedOut}}
+    {{/if}}
+</template>
+
+<template name="loginStatus_loggedIn">
+    {{#if loggingIn}}
+        <!--login spinner-->
+    {{else}}
+        <!--Show Profile/Settings & Log Out Button-->
+        <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{currentUser.profile.name}} <span class="caret"></span></a>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Messages</a></li>
+            <li class="divider"></li>
+            <li><a id="sign_out" href="#">Sign Out</a></li>
+        </ul>
+    </li>
+    {{/if}}
+</template>
+
+<template name="loginStatus_loggedOut">
+
+</template>
