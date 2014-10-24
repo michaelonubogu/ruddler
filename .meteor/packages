@@ -6,3 +6,9 @@
 meteor-platform
 autopublish
 insecure
+iron:router
+accounts-ui-unstyled
+accounts-github
+stevezhu:lodash
+pauli:accounts-linkedin
+
